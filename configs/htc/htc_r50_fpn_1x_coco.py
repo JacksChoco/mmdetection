@@ -1,4 +1,7 @@
 _base_ = './htc-without-semantic_r50_fpn_1x_coco.py'
+
+data_root = 'Dentex2-2'
+
 model = dict(
     data_preprocessor=dict(pad_seg=True),
     roi_head=dict(
@@ -22,12 +25,34 @@ model = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
     dict(
-        type='LoadAnnotations', with_bbox=True, with_mask=True, with_seg=True),
+        type='LoadAnnotations', with_bbox=True, with_mask=True, with_seg=False),
     dict(type='Resize', scale=(1333, 800), keep_ratio=True),
     dict(type='RandomFlip', prob=0.5),
     dict(type='PackDetInputs')
 ]
 train_dataloader = dict(
     dataset=dict(
-        data_prefix=dict(img='train2017/', seg='stuffthingmaps/train2017/'),
+        data_prefix=dict(img='train'),
+        data_root=data_root,
+        ann_file='train/_annotations.coco.json',
         pipeline=train_pipeline))
+
+val_dataloader = dict(
+    dataset=dict(
+        data_prefix=dict(img='valid'),
+        data_root=data_root,
+        ann_file='valid/_annotations.coco.json'
+        ))
+test_dataloader = dict(
+    dataset=dict(
+        data_prefix=dict(img='test'),
+        data_root=data_root,
+        ann_file='test/_annotations.coco.json'
+        ))
+
+val_evaluator = dict(
+    ann_file= data_root + '/valid/_annotations.coco.json'
+)
+test_evaluator = dict(
+    ann_file= data_root + '/test/_annotations.coco.json'
+)
