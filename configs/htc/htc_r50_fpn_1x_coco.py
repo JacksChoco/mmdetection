@@ -10,6 +10,7 @@ model = dict(
             roi_layer=dict(type='RoIAlign', output_size=14, sampling_ratio=0),
             out_channels=256,
             featmap_strides=[8]),
+        semantic_head=None
         # semantic_head=dict(
         #     type='FusedSemanticHead',
         #     num_ins=5,
