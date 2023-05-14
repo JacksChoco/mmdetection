@@ -13,4 +13,4 @@ class HybridTaskCascade(CascadeRCNN):
     @property
     def with_semantic(self) -> bool:
         """bool: whether the detector has a semantic head"""
-        return self.roi_head.with_semantic
+        return False
