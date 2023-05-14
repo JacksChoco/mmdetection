@@ -170,7 +170,8 @@ class CocoDataset(BaseDetDataset):
         # merge the image id sets of the two conditions and use the merged set
         # to filter out images if self.filter_empty_gt=True
         ids_in_cat &= ids_with_ann
-
+        print("-----cat") 
+        print(ids_in_cat) 
         valid_data_infos = []
         for i, data_info in enumerate(self.data_list):
             img_id = data_info['img_id']
@@ -180,4 +181,7 @@ class CocoDataset(BaseDetDataset):
                 continue
             if min(width, height) >= min_size:
                 valid_data_infos.append(data_info)
+        print("-----")
+        print(valid_data_infos)
+        print("-----")
         return valid_data_infos
