@@ -33,7 +33,7 @@ train_pipeline = [
 ]
 train_dataloader = dict(
     dataset=dict(
-        data_prefix=dict(img='train',seg=),
+        data_prefix=dict(img='train',seg='stuffthingmaps/train2017/'),
         data_root=data_root,
         ann_file='train/_annotations.coco.json',
         pipeline=train_pipeline))
