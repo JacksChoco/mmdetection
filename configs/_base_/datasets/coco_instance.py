@@ -44,7 +44,7 @@ train_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         ann_file='train/_annotations.coco.json',
-        data_prefix=dict(img='train2017/'),
+        data_prefix=dict(img='train'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
         backend_args=backend_args))
@@ -58,7 +58,7 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         ann_file='valid/_annotations.coco.json',
-        data_prefix=dict(img='val2017/'),
+        data_prefix=dict(img='valid'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
