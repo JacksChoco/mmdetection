@@ -186,6 +186,7 @@ class DetDataSample(BaseDataElement):
 
     @property
     def gt_sem_seg(self) -> PixelData:
+        print(self)
         return self._gt_sem_seg
 
     @gt_sem_seg.setter

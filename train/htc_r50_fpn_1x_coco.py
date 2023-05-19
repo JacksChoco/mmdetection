@@ -196,7 +196,7 @@ model = dict(
                 in_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=32,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0.0, 0.0, 0.0, 0.0],
@@ -213,7 +213,7 @@ model = dict(
                 in_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=32,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0.0, 0.0, 0.0, 0.0],
@@ -230,7 +230,7 @@ model = dict(
                 in_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=32,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0.0, 0.0, 0.0, 0.0],
@@ -254,7 +254,7 @@ model = dict(
                 num_convs=4,
                 in_channels=256,
                 conv_out_channels=256,
-                num_classes=80,
+                num_classes=32,
                 loss_mask=dict(
                     type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)),
             dict(
@@ -262,7 +262,7 @@ model = dict(
                 num_convs=4,
                 in_channels=256,
                 conv_out_channels=256,
-                num_classes=80,
+                num_classes=32,
                 loss_mask=dict(
                     type='CrossEntropyLoss', use_mask=True, loss_weight=1.0)),
             dict(
@@ -270,7 +270,7 @@ model = dict(
                 num_convs=4,
                 in_channels=256,
                 conv_out_channels=256,
-                num_classes=80,
+                num_classes=32,
                 loss_mask=dict(
                     type='CrossEntropyLoss', use_mask=True, loss_weight=1.0))
         ],
@@ -373,6 +373,5 @@ model = dict(
             nms=dict(type='nms', iou_threshold=0.5),
             max_per_img=100,
             mask_thr_binary=0.5)))
-device = 'cpu'
 launcher = 'none'
 work_dir = 'train'
