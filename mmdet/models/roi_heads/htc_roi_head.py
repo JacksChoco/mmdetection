@@ -285,11 +285,6 @@ class HybridTaskCascadeRoIHead(CascadeRoIHead):
         # 2 outputs: segmentation prediction and embedded features
         losses = dict()
         if self.with_semantic:
-            print("----------")
-            print(batch_data_samples[0])
-            print("----------")
-            print(batch_data_samples[0].gt_sem_seg)
-            print("----------")
             gt_semantic_segs = [
                 data_sample.gt_sem_seg.sem_seg
                 for data_sample in batch_data_samples
