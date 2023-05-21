@@ -53,15 +53,11 @@ test_dataloader = dict(
         ann_file='test/_annotations.coco.json'
         ))
 
-val_evaluator =  dict(
-    dataset=dict(
-        data_prefix=dict(img='valid'),
-        data_root=data_root,
-        ann_file='valid/_annotations.coco.json'
-        ))
+val_evaluator = dict(
+    type='CocoMetric',
+    ann_file=data_root + '/valid/_annotations.coco.json')
+
 test_evaluator = dict(
-    dataset=dict(
-        data_prefix=dict(img='test'),
-        data_root=data_root,
-        ann_file='test/_annotations.coco.json'
-        ))
+    type='CocoMetric',
+    ann_file= data_root + '/test/_annotations.coco.json'
+)
