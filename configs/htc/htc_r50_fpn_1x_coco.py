@@ -22,7 +22,8 @@ model = dict(
         #     num_classes=183,
         #     loss_seg=dict(
         #         type='CrossEntropyLoss', ignore_index=255, loss_weight=0.2))
-        #         ))
+                
+            ))
 
 train_pipeline = [
     dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
