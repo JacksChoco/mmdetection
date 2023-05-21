@@ -57,5 +57,5 @@ val_evaluator = dict(
     ann_file= data_root + '/valid/_annotations.coco.json'
 )
 test_evaluator = dict(
-    ann_file= data_root + '/test/_annotations.coco.json'
+    ann_file= 'test/_annotations.coco.json'
 )
