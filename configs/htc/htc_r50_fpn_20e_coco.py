@@ -13,4 +13,4 @@ param_scheduler = [
         milestones=[16, 19],
         gamma=0.1)
 ]
-train_cfg = dict(max_epochs=max_epochs)
+train_cfg = dict(max_epochs=max_epochs, val_interval=3)
