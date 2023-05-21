@@ -181,7 +181,4 @@ class CocoDataset(BaseDetDataset):
                 continue
             if min(width, height) >= min_size:
                 valid_data_infos.append(data_info)
-        print("-----")
-        print(valid_data_infos)
-        print("-----")
         return valid_data_infos

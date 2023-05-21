@@ -7,7 +7,7 @@ train_pipeline = [
         type='LoadAnnotations', with_bbox=True, with_mask=True,
         with_seg=False),
     dict(type='Resize', scale=(1333, 800), keep_ratio=True),
-    dict(type='RandomFlip', prob=0.5),
+    dict(type='RandomFlip', prob=0.0),
     dict(type='PackDetInputs')
 ]
 test_pipeline = [
@@ -39,7 +39,7 @@ train_dataloader = dict(
                 with_mask=True,
                 with_seg=False),
             dict(type='Resize', scale=(1333, 800), keep_ratio=True),
-            dict(type='RandomFlip', prob=0.5),
+            dict(type='RandomFlip', prob=0.0),
             dict(type='PackDetInputs')
         ],
         backend_args=None))
@@ -93,12 +93,7 @@ val_evaluator = dict(
     metric=['bbox', 'segm'],
     format_only=False,
     backend_args=None)
-test_evaluator = dict(
-    type='CocoMetric',
-    ann_file='Dentex2-2/test/_annotations.coco.json',
-    metric=['bbox', 'segm'],
-    format_only=False,
-    backend_args=None)
+test_evaluator = dict(ann_file='Dentex2-2/test/_annotations.coco.json')
 train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=12, val_interval=1)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
